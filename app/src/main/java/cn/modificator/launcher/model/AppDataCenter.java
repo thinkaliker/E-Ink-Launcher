@@ -34,6 +34,7 @@ public class AppDataCenter {
 
   public static final String wifiPackageName = "E-ink_Launcher.WiFi";
   public static final String oneKeyLockPackageName = "E-ink_Launcher.Lock";
+  public static final String notebookPackageName = "E-ink_Launcher.Notebook";
 
   public AppDataCenter(Context context) {
     this.mContext = context;
@@ -90,6 +91,8 @@ public class AppDataCenter {
     if (!hideApps.contains(wifiPackageName))
       mApps.add(createWifiIcon());
 //        mApps.addAll();
+    if (!hideApps.contains(notebookPackageName))
+      mApps.add(createNotebookIcon());
     updatePageCount();
   }
 
@@ -100,6 +103,7 @@ public class AppDataCenter {
     mApps.addAll(mContext.getPackageManager().queryIntentActivities(mainIntent, 0));
     mApps.add(createPowerIcon());
     mApps.add(createWifiIcon());
+    mApps.add(createNotebookIcon());
     launcherView.setHideAppPkg(hideApps);
     updatePageCount();
   }
@@ -192,6 +196,14 @@ public class AppDataCenter {
      resolveInfo.icon = R.drawable.ic_onekeylock;
      resolveInfo.activityInfo = new ActivityInfo();
      resolveInfo.activityInfo.packageName =oneKeyLockPackageName;
+     return resolveInfo;
+   }
+
+   private ResolveInfo createNotebookIcon() {
+     ResolveInfo resolveInfo = new ResolveInfo();
+     resolveInfo.icon = R.drawable.notebook;
+     resolveInfo.activityInfo = new ActivityInfo();
+     resolveInfo.activityInfo.packageName = notebookPackageName;
      return resolveInfo;
    }
 }

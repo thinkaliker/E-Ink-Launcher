@@ -1,15 +1,26 @@
+// Load keystore
+def keystorePropertiesFile = rootProject.file("keystore.properties");
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+//keystore.properties file should look like this and be placed in project root
+//storePassword=<store password>
+//keyPassword=<key password>
+//keyAlias=<key>
+//storeFile=<keystore pasted into app root>
+
 //noinspection GradleDynamicVersion
 apply plugin: 'com.android.application'
 //apply plugin: 'com.jakewharton.hugo'
-apply from: '../config.gradle'
+//apply from: '../config.gradle'
 
 android {
     signingConfigs {
         config {
-            keyAlias release.keyAlias
-            keyPassword release.keyPassword
-            storeFile release.storeFile
-            storePassword release.storePassword
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
         }
     }
     compileSdkVersion 29
@@ -19,7 +30,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 29
         versionCode 25
-        versionName "0.1.8.3"
+        versionName "0.1.8.3.1"
         signingConfig signingConfigs.config
     }
     buildTypes {
@@ -28,16 +39,16 @@ android {
             zipAlignEnabled true
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.config
         }
         debug {
             debuggable true
             zipAlignEnabled true
             minifyEnabled false
             shrinkResources false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.config
         }
     }
     lintOptions {

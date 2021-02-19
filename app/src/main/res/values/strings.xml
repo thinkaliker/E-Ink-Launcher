@@ -51,6 +51,7 @@
     <string name="wifi_status_connecting">WiFi connecting</string>
     <string name="wifi_status_disconnected">WiFi disconnected</string>
     <string name="wifi_status_disconnecting">WiFi disconnecting</string>
+    <string name="notebook" translatable="false">Notebook</string>
 
     <string name="item_lockscreen">Lock Screen</string>
 

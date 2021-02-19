@@ -32,6 +32,7 @@ import cn.modificator.launcher.ftpservice.FTPService;
 import cn.modificator.launcher.model.AdminReceiver;
 import cn.modificator.launcher.model.AppDataCenter;
 import cn.modificator.launcher.model.HomeEntranceService;
+import cn.modificator.launcher.model.LikebookNotebook;
 import cn.modificator.launcher.model.WifiControl;
 import cn.modificator.launcher.widgets.BatteryView;
 import cn.modificator.launcher.widgets.EInkLauncherView;
@@ -74,6 +75,7 @@ public class Launcher extends Activity {
     setContentView(R.layout.launcher_activity);
     config = new Config(this);
     WifiControl.init(this);
+    LikebookNotebook.init(this);
     toggleStatusBar();
     if (getExternalCacheDir() != null) {
       iconFile = new File(getExternalCacheDir().getParentFile().getParentFile().getParentFile().getParentFile(), "E-Ink Launcher" + File.separator + "icon");

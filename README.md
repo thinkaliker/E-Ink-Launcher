@@ -7,3 +7,7 @@ this verison is support end,new version in branch [master](https://github.com/Mo
 join telegram group https://t.me/EInkLauncher
 
 ![E-Ink Launcher](app/release/preview.png)
+
+
+## Modifications by thinkaliker
+- enable direct shortcut to built in Notebook activity for Boyue Likebook based devices

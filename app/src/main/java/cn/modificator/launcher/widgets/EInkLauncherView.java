@@ -35,6 +35,7 @@ import cn.modificator.launcher.Config;
 import cn.modificator.launcher.Launcher;
 import cn.modificator.launcher.R;
 import cn.modificator.launcher.model.AppDataCenter;
+import cn.modificator.launcher.model.LikebookNotebook;
 import cn.modificator.launcher.model.ObservableFloat;
 import cn.modificator.launcher.model.WifiControl;
 
@@ -198,13 +199,15 @@ public class EInkLauncherView extends ViewGroup{
           String packageName = dataList.get(COL_NUM * i + j).activityInfo.packageName;
           if (packageName == AppDataCenter.wifiPackageName){
             WifiControl.bind(itemView);
-          }else if (packageName == AppDataCenter.oneKeyLockPackageName){
+          }else if (packageName == AppDataCenter.oneKeyLockPackageName) {
             if (iconReplacePkg.contains(packageName)) {
               ((ImageView) itemView.findViewById(R.id.appImage)).setImageURI(Uri.fromFile(iconReplaceFile.get(iconReplacePkg.indexOf(packageName))));
-            }else {
+            } else {
               ((ImageView) itemView.findViewById(R.id.appImage)).setImageResource(R.drawable.ic_onekeylock);
             }
             ((TextView) itemView.findViewById(R.id.appName)).setText(R.string.item_lockscreen);
+          } else if (packageName == AppDataCenter.notebookPackageName) {
+            LikebookNotebook.bind(itemView);
           }else{
             if (iconReplacePkg.contains(packageName)) {
               ((ImageView) itemView.findViewById(R.id.appImage)).setImageURI(Uri.fromFile(iconReplaceFile.get(iconReplacePkg.indexOf(packageName))));
@@ -321,6 +324,9 @@ public class EInkLauncherView extends ViewGroup{
 //          activity.requestPermissions(new String[]{Manifest.permission.CHANGE_WIFI_STATE}, 0);
 //        }
         WifiControl.onClickWifiItem();
+      } else if (info.activityInfo.packageName == AppDataCenter.notebookPackageName) {
+        Activity activity = (Activity) getContext();
+        LikebookNotebook.onClickNotebookItem();
       }else{
         ComponentName componentName = new ComponentName(info.activityInfo.packageName, info.activityInfo.name);
         Intent intent = new Intent();
