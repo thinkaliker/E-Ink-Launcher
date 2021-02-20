@@ -1,13 +1,8 @@
 ## E-Ink Launcher
 
-`E-Ink Launcher` is an Android launcher for Electronic paper book
-
-this verison is support end,new version in branch [master](https://github.com/Modificator/E-Ink-Launcher)
-
-join telegram group https://t.me/EInkLauncher
-
-![E-Ink Launcher](app/release/preview.png)
-
+Originally by [Modificator](https://github.com/Modificator/E-Ink-Launcher)
 
 ## Modifications by thinkaliker
-- enable direct shortcut to built in Notebook activity for Boyue Likebook based devices
+- add direct shortcut to built in Notebook activity for Boyue Likebook based devices
+- add menu button to built-in Android settings
+- removed FTP server

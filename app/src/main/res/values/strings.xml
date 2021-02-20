@@ -21,6 +21,7 @@
     <string name="setting_cloud_manager_on">Cloud Manager - ON</string>
     <string name="setting_cloud_manager_off">Cloud Manager - OFF</string>
     <string name="setting_cloud_manager_wifi_off">Cloud Manager\n -- No WIFI connect</string>
+    <string name="android_system_settings" >System Settings</string>
     <string name="battery_status_low_battery">Low power</string>
     <string name="setting_show_divider">Show Divider</string>
     <string name="setting_hide_divider">Hide Divider</string>
